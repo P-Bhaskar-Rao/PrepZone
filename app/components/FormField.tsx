@@ -1,6 +1,5 @@
 import {
   FormControl,
-  FormDescription,
   FormItem,
   FormLabel,
   FormMessage,
@@ -15,7 +14,8 @@ interface FormFieldProps<T extends FieldValues> {
   placeholder?: string;
   type?: "text" | "email" | "password" | "file";
 }
-const FormField = ({
+
+const FormField = <T extends FieldValues>({
   name,
   control,
   label,
@@ -26,20 +26,23 @@ const FormField = ({
     <Controller
       name={name}
       control={control}
-      render={({ field }) => {
+      render={({ field, fieldState: { error } }) => {
         return (
           <FormItem>
             <FormLabel className={`${label} ml-3`}>{label}</FormLabel>
             <FormControl>
               <Input
-                className="input"
+                className={`input ${error ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
                 type={type}
                 placeholder={placeholder}
                 {...field}
               />
             </FormControl>
-          
-            <FormMessage />
+            {error && (
+              <FormMessage className="text-red-500 text-sm mt-1">
+                {error.message}
+              </FormMessage>
+            )}
           </FormItem>
         )
       }}
