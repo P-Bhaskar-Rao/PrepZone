@@ -64,7 +64,7 @@ export async function signIn(params:SignInParams){
 export async function SetSessionCookie(idToken:string){
     const cookieStore=await cookies()
     const sessionCookie=await auth.createSessionCookie(idToken,{
-        expiresIn:ONE_WEEK*100
+        expiresIn:ONE_WEEK*1000
     })
 
     cookieStore.set('session',sessionCookie,{

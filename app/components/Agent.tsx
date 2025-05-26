@@ -45,7 +45,7 @@ const Agent = ({ userName }: AgentProps) => {
       </div>
       {
         messages.length>0 && (
-            <div className="transcript-border">{callStatus==='INACTIVE' || callStatus==='FINISHED'?'Call':'...'}
+            <div className="transcript-border">
                 <div className="transcript">
                     <p className={cn('transition-opacity duration-500 opacity-0','animate-fadeIn opacity-100')}>{lastMessages}</p>
                 </div>
