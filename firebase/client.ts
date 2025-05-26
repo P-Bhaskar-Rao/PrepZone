@@ -2,15 +2,14 @@ import { getApp, getApps, initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
 const firebaseConfig = {
-  apiKey: "AIzaSyC1-SmP8w8kKK9UoMczdDpdElOJwPkfQdg",
-  authDomain: "prepzone-59636.firebaseapp.com",
-  projectId: "prepzone-59636",
-  storageBucket: "prepzone-59636.firebasestorage.app",
-  messagingSenderId: "754843339405",
-  appId: "1:754843339405:web:19a7d3e225ba1d268230c4",
-  measurementId: "G-DD2CBDPWBW"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain:process.env.FIREBASE_AUTH_DOMIAN ,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket:process.env.FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId:process.env.FIREBASE_APP_ID,
+  measurementId:process.env.FIRE_BASE_MEASUREMENT_ID 
 };
-
 
 const app =!getApps().length?initializeApp(firebaseConfig):getApp();
 export const auth=getAuth(app)
