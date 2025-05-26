@@ -9,13 +9,13 @@ const Layout = async({children}:{children:ReactNode}) => {
   if(!isUserAuthenticated) redirect('/signin')
   return (
     <div className='root-layout'>
-      <nav>
+      <nav >
         <Link href='/' className='flex items-center gap-2'>
           <Image src='/logo.svg' alt='logo' width={38} height={32}/>
           <h2>PrepZone</h2>
         </Link>
-        {children}
       </nav>
+      {children}
     </div>
   )
 }
